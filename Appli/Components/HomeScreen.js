@@ -13,7 +13,7 @@ export default class HomeScreen extends React.Component {
             <Text style={styles.label}>Découvre le domaine du Web en t'amusant</Text>
         </View>
         <View style={styles.buttons}>
-            <TouchableOpacity style={styles.buttonInvite}>
+            <TouchableOpacity style={styles.buttonInvite} onPress={() => this.props.navigation.navigate('ProfileScreen')}>
                 <Text style={styles.label}>Invité</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.buttonFacebook}>

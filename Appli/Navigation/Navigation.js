@@ -12,7 +12,7 @@ import  HomeScreen from '../Components/HomeScreen'
     },
 
     
-    Profile:{
+    ProfileScreen:{
         screen: ProlileScreen 
 },
 
