@@ -10,15 +10,16 @@ export default class HomeScreen extends React.Component {
                 source={require('../assets/Images/logo.png')}
                 style={{marginBottom: 30}}
             />
-            <Text style={styles.label}>Découvre le domaine du Web en t'amusant</Text>
+            <Text style={styles.headerLabel}>Découvre le domaine du Web en t'amusant</Text>
         </View>
         <View style={styles.buttons}>
-            <TouchableOpacity style={styles.buttonInvite} onPress={() => this.props.navigation.navigate('ProfileScreen')}>
-                <Text style={styles.label}>Invité</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.buttonFacebook}>
-                <Text style={styles.label}>Connexion avec Facebook</Text>
-            </TouchableOpacity>
+                <TouchableOpacity style={styles.buttonFacebook} onPress={() => this.props.navigation.navigate('ProfileScreen')}>
+                    <Text style={styles.label}>Connexion avec Facebook</Text>
+                </TouchableOpacity>
+    
+                <TouchableOpacity style={styles.buttonInvite} onPress={() => this.props.navigation.navigate('ProfileScreen')}>
+                    <Text style={styles.label}>Invité</Text>
+                </TouchableOpacity>
         </View>
     </View>
     );
@@ -33,27 +34,43 @@ const styles = StyleSheet.create({
   },
 
   header: {
-    flex: 2, 
+    flex: 1, 
     alignItems: 'center',
-    marginTop: 30,
+    justifyContent: 'center'
+    },
+
+  headerLabel: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    justifyContent: 'center',
+    alignItems: 'center',
+    color: '#4267B2',
   },
 
   buttons: {
-    flex: 1,  
+    flex: 1, 
+    alignItems: 'center',
+    justifyContent: 'center'
 },
 
   buttonInvite: {
-    height: 50,
+    width: 150,
+    height: 40,
     backgroundColor: '#D9D9D9',
     justifyContent: 'center',
+    alignItems: 'center',
     marginBottom: 30,
     borderRadius: 5,
   },
 
   buttonFacebook: {
+    width: 250,
     height: 50,
     backgroundColor: '#4267B2',
-    borderRadius: 5
+    borderRadius: 5,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: 15,
   },
 
   label: {
@@ -61,6 +78,6 @@ const styles = StyleSheet.create({
     fontWeight: 'normal',
     justifyContent: 'center',
     alignItems: 'center',
-    color: '#FFF'
+    color: '#FFF',
   },
 });
