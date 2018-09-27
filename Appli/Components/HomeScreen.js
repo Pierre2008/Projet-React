@@ -20,7 +20,7 @@ export default class HomeScreen extends React.Component {
         
                     <TouchableOpacity style={styles.buttonInvite} onPress={() => this.props.navigation.navigate('ProfileScreen')}>
                         <Text style={styles.label}>Invité</Text>
-                    </TouchableOpacity>
+                    </TouchableOpacity>      
             </View>
     </View>
     );
