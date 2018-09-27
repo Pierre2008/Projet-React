@@ -6,23 +6,37 @@ import  HomeScreen from '../Components/HomeScreen'
 
 
  const Navigation = createStackNavigator(
-    {
+{
     HomeScreen: {
-        screen: HomeScreen
+        screen: HomeScreen, 
     },
-
     
     ProfileScreen:{
-        screen: ProlileScreen 
-},
+        screen: ProlileScreen,
+        navigationOptions: {
+            title: 'Profil',
+        },
+    },
 
     ClassicQuiz: {
         screen:ClassicQuiz
 
-},
+    },
 
     CompetQuiz: {
-        screen:CompetQuiz }
-})
+        screen:CompetQuiz 
+    }
+},
+
+    {
+        initialRouteName: "HomeScreen",
+        navigationOptions: {
+          headerStyle: {
+            backgroundColor: '#FFCC66'
+          },
+          headerTintColor: "#FFF",
+        }
+      }
+    );
 
 export default Navigation

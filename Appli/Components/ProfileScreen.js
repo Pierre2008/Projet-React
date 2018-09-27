@@ -48,6 +48,7 @@ const styles = StyleSheet.create({
      
       user: {
         flexDirection: 'column',
+        alignItems: 'center',
         backgroundColor: '#FFCC66',
       },  
 

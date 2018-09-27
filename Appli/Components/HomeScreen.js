@@ -1,26 +1,27 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image, TouchableOpacity} from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableOpacity, StatusBar, SafeAreaView} from 'react-native';
 
 export default class HomeScreen extends React.Component {
   render() {
     return (
-    <View style={styles.container}>
-        <View style={styles.header}>
-            <Image
-                source={require('../assets/Images/logo.png')}
-                style={{marginBottom: 30}}
-            />
-            <Text style={styles.headerLabel}>Découvre le domaine du Web en t'amusant</Text>
-        </View>
-        <View style={styles.buttons}>
-                <TouchableOpacity style={styles.buttonFacebook} onPress={() => this.props.navigation.navigate('ProfileScreen')}>
-                    <Text style={styles.label}>Connexion avec Facebook</Text>
-                </TouchableOpacity>
-    
-                <TouchableOpacity style={styles.buttonInvite} onPress={() => this.props.navigation.navigate('ProfileScreen')}>
-                    <Text style={styles.label}>Invité</Text>
-                </TouchableOpacity>
-        </View>
+        <View style={styles.container}>
+        <StatusBar backgroundColor = '#FFCC66' />
+            <View style={styles.header}>
+                <Image
+                    source={require('../assets/Images/logo.png')}
+                    style={{marginBottom: 30}}
+                />
+                <Text style={styles.headerLabel}>Découvre le domaine du Web en t'amusant</Text>
+            </View>
+            <View style={styles.buttons}>
+                    <TouchableOpacity style={styles.buttonFacebook} onPress={() => this.props.navigation.navigate('ProfileScreen')}>
+                        <Text style={styles.label}>Connexion avec Facebook</Text>
+                    </TouchableOpacity>
+        
+                    <TouchableOpacity style={styles.buttonInvite} onPress={() => this.props.navigation.navigate('ProfileScreen')}>
+                        <Text style={styles.label}>Invité</Text>
+                    </TouchableOpacity>
+            </View>
     </View>
     );
   }
