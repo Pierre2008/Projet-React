@@ -11,8 +11,8 @@ export default class ProfilScreen extends React.Component {
             backgroundColor: 'white', 
             borderRadius: 5, }
         return (
-            <ScrollView style={styles.container}>
-                <View>
+            <ScrollView>
+                <View style={styles.container}>
                     <View style={styles.coinsContainer}>
                         <Image
                             source={require('../assets/Images/coin.png')}
@@ -25,32 +25,36 @@ export default class ProfilScreen extends React.Component {
                         />
                         <Text style={{fontSize: 17}}>User Name</Text>
                     </View>
-                    <View style= {styles.achievementsContainer}>
-                        <ProgressBarAnimated
+                    <View style= {styles.achievementsMainContainer}>
+                        <View style= {styles.achievementsContainer}>
+                            <ProgressBarAnimated
+                                {...progressCustomStyles}
+                                width={barWidth}
+                                value={20}
+                                backgroundColorOnComplete="#6CC644"
+                            />
+                            <Image
+                                source={require('../assets/Images/podium.png')}
+                            />
+                        </View>
+                        <View style= {styles.achievementsContainer}>
+                            <ProgressBarAnimated
                             {...progressCustomStyles}
                             width={barWidth}
                             value={20}
                             backgroundColorOnComplete="#6CC644"
-                        />
-                        <Image
+                            />
+                            <Image
                             source={require('../assets/Images/trophy.png')}
-                        />
-                        <ProgressBarAnimated
-                            {...progressCustomStyles}
-                            width={barWidth}
-                            value={20}
-                            backgroundColorOnComplete="#6CC644"
-                        />
-                        <Image
-                            source={require('../assets/Images/podium.png')}
-                        />
+                            />
+                        </View>
                     </View>
 
                     <View style={styles.buttonsContainer}>
                         <TouchableOpacity 
                         style= {styles.buttonsPlay}
                         onPress={() => this.props.navigation.navigate('ClassicQuiz')}>
-                        <Text style= {styles.buttonsText}>Classique</Text>
+                        <Text style={styles.buttonsText}>Classique</Text>
                         </TouchableOpacity>
                         <TouchableOpacity style= {styles.buttonsPlay}
                         onPress={() => this.props.navigation.navigate('CompetQuiz')}>
@@ -84,18 +88,25 @@ const styles = StyleSheet.create({
       quantityCoins: {
         fontSize: 16,
         marginLeft: 7,
-        flexDirection: 'row',
       },
      
       userContainer: {
         marginTop: 50,
-        flexDirection: 'column',
         alignItems: 'center',
       },  
 
-      achievementsContainer: {
+      achievementsMainContainer: {
         marginTop: 50,
+        flexDirection: 'column',
+        backgroundColor: '#000'
+        
+      },
+
+      achievementsContainer: {
+        flexDirection:  'row',
         alignItems: 'center',
+        justifyContent: 'space-between'
+
       },
 
       buttonsContainer: {
