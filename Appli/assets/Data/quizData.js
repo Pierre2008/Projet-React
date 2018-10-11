@@ -4,7 +4,7 @@ export const data = {
 					"quiz1" : {
 						"question1" : {
 							"questionNumber" :"Question 1", 
-							"correctoption" : "World Wide Web",
+							"correctoption" : "option2",
 							"options" : {
 							"option1" : "Wild Wide Web",
 							"option2" : "World Wide Web",

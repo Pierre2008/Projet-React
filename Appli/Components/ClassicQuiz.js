@@ -2,42 +2,53 @@ import React from 'react';
 import { StyleSheet, Text, View, Image, TouchableOpacity} from 'react-native';
 import { data } from '../assets/Data/quizData';
 
-let newArray = [];
+let dataArray = [];
 
 export default class ClassicScreen extends React.Component {
 
     constructor(props) {
         super(props);
         this.questionNumber = 0;
-        quizFinish : false;
-        score: 0;
+        score : 0;
 
     const jsonData = data.games.quiz1;
-    newArray = Object.keys(jsonData).map( function(k) { return jsonData[k] });
+    dataArray = Object.keys(jsonData).map( function(keys) { return jsonData[keys] });
     this.state = {
-        question : newArray[this.questionNumber].question,
-        questionNumber : newArray[this.questionNumber].questionNumber,
-        options : newArray[this.questionNumber].options,
-        correctoption : newArray[this.questionNumber].correctoption,
+        question : dataArray[this.questionNumber].question,
+        questionNumber : dataArray[this.questionNumber].questionNumber,
+        options : dataArray[this.questionNumber].options,
+        correctoption : dataArray[this.questionNumber].correctoption,
         countCheck : 0
         }
+        console.log(dataArray);
     }
 
-
-    _quizFinish(score) {
-        this.setState({ quizFinish: true, score : score });
+    _answer(status,ans) {
+        if(status == true) {
+          const count = this.state.countCheck + 1;
+          this.setState({ countCheck: count });
+          if(ans == this.state.correctoption) {
+            this.score += 1;
+          }
+        } else {
+          const count = this.state.countCheck - 1;
+          this.setState({ countCheck: count });
+          if(this.state.countCheck < 1 || ans == this.state.correctoption){
+            this.score -= 1;
+          }
+        }
       }
     
       next(){
-        if(this.questionNumber < newArray.length-1) {
+        if(this.questionNumber < dataArray.length-1) {
           this.questionNumber++;
-          this.setState({ countCheck: 0, question: newArray[this.questionNumber].question, options: newArray[this.questionNumber].options, correctoption : newArray[this.questionNumber].correctoption, questionNumber : newArray[this.questionNumber].questionNumber});
+          this.setState({ countCheck: 0, question: dataArray[this.questionNumber].question, options: dataArray[this.questionNumber].options, correctoption : dataArray[this.questionNumber].correctoption, questionNumber : dataArray[this.questionNumber].questionNumber});
         } else {
-          this.props.quizFinish(this.score);
+          this.props._scoreMessage(this.score);
         }
       }
 
-    render() {
+      render() {
         return (
             <View style={styles.mainContainer}>
                 <View style={styles.titleContainer}>
@@ -49,28 +60,30 @@ export default class ClassicScreen extends React.Component {
                 </View>
                 <View style={styles.answersContainer}>
                     <TouchableOpacity style={styles.answersButtons}>
-                        <Text>{this.state.option1}</Text>
+                        <Text>{this.state.options.option1}</Text>
                     </TouchableOpacity>
                     
                     <TouchableOpacity style={styles.answersButtons}> 
-                        <Text>{this.state.option2}</Text>
+                        <Text>{this.state.options.option2}</Text>
                     </TouchableOpacity>
                     
                     <TouchableOpacity style={styles.answersButtons}> 
-                        <Text>{this.state.option3}</Text>
+                        <Text>{this.state.options.option3}</Text>
                     </TouchableOpacity>
                     
                     <TouchableOpacity style={styles.answersButtons}>                    
-                        <Text>{this.state.option4}</Text>
+                        <Text>{this.state.options.option4}</Text>
                     </TouchableOpacity>
                 </View>
 
                 <View style={styles.goodAnswerContainer}>
-                    <Text style={styles.goodAnswerText}>{this.state.correctoption}</Text>
+                    <Text style={styles.goodAnswerText}>{this.state.options[this.state.correctoption]}</Text>
                 </View>
 
                 <View style= {{flex: 1}}>
-                    <TouchableOpacity onPress={() => this.next()} style={{backgroundColor: '#4267B2'}}>
+                    <TouchableOpacity 
+                    style={styles.buttonNext}
+                    onPress={() => this.next()}>
                         <Text>Suivant</Text>
                     </TouchableOpacity>
                 </View>
@@ -133,5 +146,13 @@ const styles = StyleSheet.create({
     goodAnswerText: {    
         fontSize: 20,
         fontWeight: 'bold',
-    }    
+    },
+
+    buttonNext: {
+        backgroundColor: '#4267B2', 
+        width:90,
+        height:40, 
+        alignItems: 'center', 
+        justifyContent: 'center',
+    }
 });    
