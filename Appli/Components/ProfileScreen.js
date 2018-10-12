@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, Image, TouchableOpacity, Dimensions } from 'rea
 import ProgressBarAnimated from 'react-native-progress-bar-animated';
 
 
-export default class ProfilScreen extends React.Component {
+export default class ProfileScreen extends React.Component {
     render() {
 
         const barWidth = Dimensions.get('screen').width - 200;

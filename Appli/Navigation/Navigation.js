@@ -3,6 +3,7 @@ import  ClassicQuiz from '../Components/ClassicQuiz'
 import  CompetQuiz from '../Components/CompetQuiz'
 import  ProlileScreen from '../Components/ProfileScreen'
 import  HomeScreen from '../Components/HomeScreen'
+import  LoginForm from '../Components/LoginForm'
 
 
  const Navigation = createStackNavigator(
@@ -25,6 +26,10 @@ import  HomeScreen from '../Components/HomeScreen'
 
     CompetQuiz: {
         screen:CompetQuiz 
+    },
+
+    LoginForm: {
+        screen:LoginForm
     }
 },
 

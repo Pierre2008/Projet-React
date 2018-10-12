@@ -18,7 +18,7 @@ export default class HomeScreen extends React.Component {
                         <Text style={styles.label}>Connexion avec Facebook</Text>
                     </TouchableOpacity>
         
-                    <TouchableOpacity style={styles.buttonInvite} onPress={() => this.props.navigation.navigate('ProfileScreen')}>
+                    <TouchableOpacity style={styles.buttonInvite} onPress={() => this.props.navigation.navigate('LoginForm')}>
                         <Text style={styles.label}>Invité</Text>
                     </TouchableOpacity>      
             </View>
