@@ -1,7 +1,37 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image, TouchableOpacity, StatusBar, SafeAreaView} from 'react-native';
+import * as firebase from 'firebase';
+import { StyleSheet, Text, View, Image, TouchableOpacity, StatusBar, SafeAreaView,} from 'react-native';
+
 
 export default class HomeScreen extends React.Component {
+
+  constructor(props){
+      super(props)
+    this.state =({
+      user: '',
+    })
+}
+
+  componentDidMount() {
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user!= null) {
+      this.props.navigation.navigate("ProfileScreen");
+      console.log(user);
+      }
+    })
+  }
+  
+  async loginWithFacebook() {
+    const { type, token } = await Expo.Facebook.logInWithReadPermissionsAsync
+    ('1902257816476632', { permissions: ['public_profile'] })
+    if (type == 'success') {
+        const credential = firebase.auth.FacebookAuthProvider.credential(token)
+        firebase.auth().signInAndRetrieveDataWithCredential(credential).catch((error) => {
+          console.log(error);
+        })
+    }
+  } 
+  
   render() {
     return (
         <View style={styles.container}>
@@ -14,7 +44,7 @@ export default class HomeScreen extends React.Component {
                 <Text style={styles.headerLabel}>Découvre le domaine du Web en t'amusant</Text>
             </View>
             <View style={styles.buttons}>
-                    <TouchableOpacity style={styles.buttonFacebook} onPress={() => this.props.navigation.navigate('ProfileScreen')}>
+                    <TouchableOpacity style={styles.buttonFacebook} onPress={() => this.loginWithFacebook() }>
                         <Text style={styles.label}>Connexion avec Facebook</Text>
                     </TouchableOpacity>
         

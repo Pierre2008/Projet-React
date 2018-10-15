@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image, TouchableOpacity, Dimensions } from 'react-native';
 import ProgressBarAnimated from 'react-native-progress-bar-animated';
+import  { email } from './LoginForm'
 
 
 export default class ProfileScreen extends React.Component {
@@ -22,7 +23,7 @@ export default class ProfileScreen extends React.Component {
                         <Image
                             source={require('../assets/Images/user.png')}
                         />
-                        <Text style={{fontSize: 17}}>User Name</Text>
+                        <Text style={{fontSize: 17}}>{email}</Text>
                     </View>
                     <View style= {styles.achievementsMainContainer}>
                         <View style= {styles.achievementsContainer}>
@@ -147,8 +148,7 @@ const styles = StyleSheet.create({
 
       coursMainContainer: {
         marginTop: 70,
-        flexDirection: 'column',
-        alignItems: 'center'
+        alignItems: 'center',
       },
 
       coursContainer: {

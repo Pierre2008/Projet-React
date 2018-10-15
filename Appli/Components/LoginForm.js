@@ -2,10 +2,10 @@ import React from 'react';
 import * as firebase from 'firebase';
 import { StyleSheet, Text, Image } from 'react-native';
 import { Container, Form, Input, Item, Button, Label,  } from 'native-base';
-import ProfileScreen from './ProfileScreen';
+
 
 // Initialize Firebase
-var firebaseConfig = {
+export var firebaseConfig = {
   apiKey: "AIzaSyAgkujfeaXkfpVMvigcjxcXNuS-E6XtK9A",
   authDomain: "web-infos-quiz.firebaseapp.com",
   databaseURL: "https://web-infos-quiz.firebaseio.com",
@@ -16,7 +16,10 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 
+        
+
 export default class LoginForm extends React.Component {
+
     constructor(props){
         super(props)
 
@@ -38,6 +41,7 @@ export default class LoginForm extends React.Component {
                     this.props.navigation.navigate("ProfileScreen");
                 }
             }))
+
         }
         
         catch (error) {
@@ -51,8 +55,12 @@ export default class LoginForm extends React.Component {
             
             firebase.auth().signInWithEmailAndPassword(email, password).then(firebase.auth().onAuthStateChanged((user) => {
                 if (user != null) {
+                    var email = user.email;
+                    var uid = user.uid;
+                    var providerData = user.providerData;
                     this.props.navigation.navigate("ProfileScreen");
                 }
+                console.log(email);
             }))
         }
         catch (error) {
@@ -61,14 +69,13 @@ export default class LoginForm extends React.Component {
     
     }
 
-    
-    
     render() {
       return ( 
             <Container style= {styles.container}>
                 <Image
-                        source={require('../assets/Images/logo.png')}
-                    />
+                style={{justifyContent:'center',}}
+                source={require('../assets/Images/logo.png')}
+                />
                 <Form>
                     <Item floatingLabel>
                         <Label>Email</Label>
@@ -98,7 +105,7 @@ export default class LoginForm extends React.Component {
                     success
                     onPress= {() => this.signInUser(this.state.email, this.state.password)}
                     >
-                        <Text>Sign in</Text>
+                        <Text>Connexion</Text>
                     </Button>
 
                     <Button 
@@ -108,7 +115,7 @@ export default class LoginForm extends React.Component {
                     primary
                     onPress= {() => this.signUpUser(this.state.email, this.state.password)}
                     >
-                        <Text>Sign up</Text>
+                        <Text>Inscription</Text>
                     </Button>
                 </Form>
             </Container>
