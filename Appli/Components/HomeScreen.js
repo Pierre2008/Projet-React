@@ -5,11 +5,11 @@ import { StyleSheet, Text, View, Image, TouchableOpacity, StatusBar, SafeAreaVie
 
 export default class HomeScreen extends React.Component {
 
-  constructor(props){
-      super(props)
-    this.state =({
-      user: '',
-    })
+constructor(props) {
+  super(props)
+  this.state= ({
+    user: '',
+  })
 }
 
   componentDidMount() {
@@ -22,7 +22,7 @@ export default class HomeScreen extends React.Component {
   }
   
   async loginWithFacebook() {
-    const { type, token } = await Expo.Facebook.logInWithReadPermissionsAsync
+   const { type, token } = await Expo.Facebook.logInWithReadPermissionsAsync
     ('1902257816476632', { permissions: ['public_profile'] })
     if (type == 'success') {
         const credential = firebase.auth.FacebookAuthProvider.credential(token)

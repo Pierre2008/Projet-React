@@ -1,8 +1,6 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image, TouchableOpacity, ScrollView, Dimensions } from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableOpacity, Dimensions, ScrollView } from 'react-native';
 import ProgressBarAnimated from 'react-native-progress-bar-animated';
-import  { email } from './LoginForm'
-
 
 export default class ProfileScreen extends React.Component {
     render() {
@@ -12,23 +10,19 @@ export default class ProfileScreen extends React.Component {
             backgroundColor: 'white', 
             borderRadius: 5, }
         return (
-            <ScrollView>
+            <ScrollView style={styles.container}>
                 <View style={styles.container}>
-                    <TouchableOpacity
-                        onPress={() => this.props.navigation.navigate('Shop')}>
-
                     <View style={styles.coinsContainer}>
                         <Image
                             source={require('../assets/Images/coin.png')}
                         />
                         <Text style= {styles.quantityCoins}>200,000</Text>
                     </View>
-                    </TouchableOpacity>
                     <View style={styles.userContainer}>
                         <Image
                             source={require('../assets/Images/user.png')}
                         />
-                        <Text style={{fontSize: 17}}>{email}</Text>
+                        <Text style={{fontSize: 17, color:'#FFF'}}>{this.props.displayName}</Text>
                     </View>
                     <View style= {styles.achievementsMainContainer}>
                         <View style= {styles.achievementsContainer}>
@@ -87,18 +81,10 @@ export default class ProfileScreen extends React.Component {
                                 onPress={() => this.props.navigation.navigate('CoursMarketing')}>
                                 <Text style= {styles.buttonsText}>Marketing</Text>
                                 </TouchableOpacity>
-                            </View>
-
-                    </View>
-                    <View>
-                        <TouchableOpacity
-                            style= {styles.buttonContact}
-                            onPress={() => this.props.navigation.navigate('Contact')}>
-                            <Text style= {styles.buttonsText}>Contacter Staff</Text>
-                        </TouchableOpacity>
+                            </View>    
                     </View>
                 </View>
-            </ScrollView>
+                </ScrollView>
         );
     }
 }
@@ -149,20 +135,10 @@ const styles = StyleSheet.create({
         width: 140,
         height: 100,
         backgroundColor: '#4267B2',
-        alignItems: 'center',
+        alignItems: 'center', 
         justifyContent: 'center',
-
-    },
-
-    buttonContact: {
-        width: 90,
-        height: 90,
-        borderRadius:30,
-        backgroundColor: '#4267B2',
-        alignItems: 'center',
-        justifyContent: 'center',
-
-    },
+        
+      },
 
       buttonsText: {
         color: '#FFF',

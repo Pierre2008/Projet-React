@@ -23,21 +23,6 @@ export default class ClassicScreen extends React.Component {
         console.log(dataArray);
     }
 
-    _answer(status,ans) {
-        if(status == true) {
-          const count = this.state.countCheck + 1;
-          this.setState({ countCheck: count });
-          if(ans == this.state.correctoption) {
-            this.score += 1;
-          }
-        } else {
-          const count = this.state.countCheck - 1;
-          this.setState({ countCheck: count });
-          if(this.state.countCheck < 1 || ans == this.state.correctoption){
-            this.score -= 1;
-          }
-        }
-      }
     
       next(){
         if(this.questionNumber < dataArray.length-1) {
