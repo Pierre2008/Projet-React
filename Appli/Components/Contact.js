@@ -21,7 +21,7 @@ export default class Contact extends React.Component {
                     <FormValidationMessage>{'Champs Requis'}</FormValidationMessage>
 
                 </View>
-            );qA
+            );
 
 
     }
