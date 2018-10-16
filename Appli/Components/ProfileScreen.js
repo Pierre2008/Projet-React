@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image, TouchableOpacity, Dimensions, ScrollView } from 'react-native';
 import ProgressBarAnimated from 'react-native-progress-bar-animated';
+import {Button} from "react-native-elements";
 
 export default class ProfileScreen extends React.Component {
     render() {
@@ -13,10 +14,13 @@ export default class ProfileScreen extends React.Component {
             <ScrollView style={styles.container}>
                 <View style={styles.container}>
                     <View style={styles.coinsContainer}>
+                        <TouchableOpacity
+                            onPress={() => this.props.navigation.navigate('Shop')}>
                         <Image
                             source={require('../assets/Images/coin.png')}
                         />
                         <Text style= {styles.quantityCoins}>200,000</Text>
+                        </TouchableOpacity>
                     </View>
                     <View style={styles.userContainer}>
                         <Image
@@ -81,7 +85,14 @@ export default class ProfileScreen extends React.Component {
                                 onPress={() => this.props.navigation.navigate('CoursMarketing')}>
                                 <Text style= {styles.buttonsText}>Marketing</Text>
                                 </TouchableOpacity>
-                            </View>    
+                            </View>
+                        <View>
+                            <Button
+                                onPress={() => this.props.navigation.navigate('Contact')}
+                                title= "Contacter Staff"
+                                color="#FFF"
+                            />
+                        </View>
                     </View>
                 </View>
                 </ScrollView>
