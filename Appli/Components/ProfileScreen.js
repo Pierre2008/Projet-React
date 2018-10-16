@@ -1,8 +1,6 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image, TouchableOpacity, Dimensions } from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableOpacity, Dimensions, ScrollView } from 'react-native';
 import ProgressBarAnimated from 'react-native-progress-bar-animated';
-import  { email } from './LoginForm'
-
 
 export default class ProfileScreen extends React.Component {
     render() {
@@ -12,6 +10,7 @@ export default class ProfileScreen extends React.Component {
             backgroundColor: 'white', 
             borderRadius: 5, }
         return (
+            <ScrollView style={styles.container}>
                 <View style={styles.container}>
                     <View style={styles.coinsContainer}>
                         <Image
@@ -23,7 +22,7 @@ export default class ProfileScreen extends React.Component {
                         <Image
                             source={require('../assets/Images/user.png')}
                         />
-                        <Text style={{fontSize: 17}}>{email}</Text>
+                        <Text style={{fontSize: 17, color:'#FFF'}}>{this.props.displayName}</Text>
                     </View>
                     <View style= {styles.achievementsMainContainer}>
                         <View style= {styles.achievementsContainer}>
@@ -85,6 +84,7 @@ export default class ProfileScreen extends React.Component {
                             </View>    
                     </View>
                 </View>
+                </ScrollView>
         );
     }
 }
