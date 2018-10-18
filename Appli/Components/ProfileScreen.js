@@ -1,5 +1,9 @@
 import React from 'react';
+<<<<<<< Updated upstream
 import {StyleSheet, Text, View, Image, TouchableOpacity, Dimensions, ScrollView,} from 'react-native';
+=======
+import {StyleSheet, Text, View, Image, TouchableOpacity, Dimensions, ScrollView} from 'react-native';
+>>>>>>> Stashed changes
 import ProgressBarAnimated from 'react-native-progress-bar-animated';
 
 export default class ProfileScreen extends React.Component {
@@ -16,6 +20,7 @@ export default class ProfileScreen extends React.Component {
 
                     <View style={styles.coinsContainer}>
                         <TouchableOpacity
+<<<<<<< Updated upstream
                             onPress={() => this.props.navigation.navigate('ShopCate')}>
                             <Image
                                 source={require('../assets/Images/coin.png')}
@@ -24,6 +29,13 @@ export default class ProfileScreen extends React.Component {
                         <TouchableOpacity
                             onPress={() => this.props.navigation.navigate('ShopCate')}>
                             <Text style={styles.quantityCoins}>2,000</Text>
+=======
+                            onPress={() => this.props.navigation.navigate('Shop')}>
+                            <Image
+                                source={require('../assets/Images/coin.png')}
+                            />
+                            <Text style={styles.quantityCoins}>200,000</Text>
+>>>>>>> Stashed changes
                         </TouchableOpacity>
                     </View>
 
@@ -31,7 +43,11 @@ export default class ProfileScreen extends React.Component {
                         <Image
                             source={require('../assets/Images/user.png')}
                         />
+<<<<<<< Updated upstream
                         <Text style={{fontSize: 17, color: '#FFF'}}>{this.props.displayName}</Text>
+=======
+                        <Text style={{fontSize: 17, color: '#FFF'}}>{}</Text>
+>>>>>>> Stashed changes
                     </View>
                     <View style={styles.achievementsMainContainer}>
                         <View style={styles.achievementsContainer}>
@@ -48,7 +64,10 @@ export default class ProfileScreen extends React.Component {
                             </View>
                         </View>
                         <View style={styles.achievementsContainer}>
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
                             <ProgressBarAnimated
                                 {...progressCustomStyles}
                                 width={barWidth}
@@ -63,11 +82,18 @@ export default class ProfileScreen extends React.Component {
                     </View>
 
                     <View style={styles.buttonsContainer}>
+<<<<<<< Updated upstream
 
                         <TouchableOpacity
                             style={styles.buttonsPlay}
                             onPress={() => this.props.navigation.navigate('ClassicQuiz')}>
                             <Text style={styles.buttonsText}>Jouer</Text>
+=======
+                        <TouchableOpacity
+                            style={styles.buttonsPlay}
+                            onPress={() => this.props.navigation.navigate('ChoixQuiz')}>
+                            <Text style={styles.buttonsText}>Jouer au Quiz</Text>
+>>>>>>> Stashed changes
                         </TouchableOpacity>
 
                     </View>
@@ -77,6 +103,7 @@ export default class ProfileScreen extends React.Component {
                     />
                     <View style={styles.coursMainContainer}>
                         <Text style={{fontSize: 18, fontWeight: 'bold', color: '#4267B2'}}>Cours disponibles</Text>
+<<<<<<< Updated upstream
                     </View>
 
                     <View style={styles.coursContainer}>
@@ -120,6 +147,34 @@ export default class ProfileScreen extends React.Component {
                                 style={styles.buttonContactText}>Condition d'utilisation
                             </Text>
                         </TouchableOpacity>
+=======
+                        <View style={styles.coursContainer}>
+                            <TouchableOpacity
+                                style={styles.buttonsCours}
+                                onPress={() => this.props.navigation.navigate('CoursDev')}>
+                                <Text style={styles.buttonsText}>Dev</Text>
+                            </TouchableOpacity>
+
+                            <TouchableOpacity
+                                style={styles.buttonsCours}
+                                onPress={() => this.props.navigation.navigate('CoursDesign')}>
+                                <Text style={styles.buttonsText}>Design</Text>
+                            </TouchableOpacity>
+
+                            <TouchableOpacity
+                                style={styles.buttonsCours}
+                                onPress={() => this.props.navigation.navigate('CoursMarketing')}>
+                                <Text style={styles.buttonsText}>Marketing</Text>
+                            </TouchableOpacity>
+                        </View>
+                        /*<View>
+                            <Button
+                                onPress={() => this.props.navigation.navigate('Contact')}
+                                title="Contacter Staff"
+                                color="#FFF"
+                            />
+                        </View>*/
+>>>>>>> Stashed changes
                     </View>
 
                 </View>
@@ -147,7 +202,10 @@ const styles = StyleSheet.create({
         fontSize: 16,
         fontWeight: 'bold',
         marginLeft: 7,
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
     },
 
     userContainer: {
@@ -174,6 +232,7 @@ const styles = StyleSheet.create({
     },
 
     buttonsPlay: {
+<<<<<<< Updated upstream
         width: 250,
         height: 70,
         backgroundColor: '#4267B2',
@@ -184,6 +243,15 @@ const styles = StyleSheet.create({
         borderColor: '#FFF',
 
 
+=======
+        width: 150,
+        height: 80,
+        backgroundColor: '#4267B2',
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderRadius: 30,
+
+>>>>>>> Stashed changes
     },
 
     buttonsText: {
@@ -193,15 +261,23 @@ const styles = StyleSheet.create({
     },
 
     coursMainContainer: {
+<<<<<<< Updated upstream
         marginTop: 20,
         alignItems: 'center',
 
     },
 
+=======
+        marginTop: 70,
+        alignItems: 'center',
+    },
+
+>>>>>>> Stashed changes
     coursContainer: {
         marginTop: 20,
 
         flexDirection: 'row',
+<<<<<<< Updated upstream
         justifyContent: 'space-around',
 
     },
@@ -212,11 +288,17 @@ const styles = StyleSheet.create({
 
     },
 
+=======
+        justifyContent: 'space-around'
+    },
+
+>>>>>>> Stashed changes
     buttonsCours: {
         width: 100,
         height: 80,
         backgroundColor: '#4267B2',
         alignItems: 'center',
+<<<<<<< Updated upstream
         justifyContent: 'center',
         borderRadius: 10,
         borderWidth: 1,
@@ -273,5 +355,9 @@ const styles = StyleSheet.create({
         marginBottom: 10,
     }
 
+=======
+        justifyContent: 'center',
+    }
+>>>>>>> Stashed changes
 
 });    

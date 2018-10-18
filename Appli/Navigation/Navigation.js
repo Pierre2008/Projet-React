@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 import { createStackNavigator } from 'react-navigation'
 import  ClassicQuiz from '../Components/ClassicQuiz'
 import  ProlileScreen from '../Components/ProfileScreen'
@@ -21,14 +22,39 @@ import CoursLang from "../Components/CoursLang";
         screen: ProlileScreen,
         navigationOptions: {
             title: 'Profil',
+=======
+import {createStackNavigator} from 'react-navigation'
+import ClassicQuiz from '../Components/ClassicQuiz'
+import ChoixQuiz from '../Components/ChoixQuiz'
+import ProlileScreen from '../Components/ProfileScreen'
+import HomeScreen from '../Components/HomeScreen'
+import LoginForm from '../Components/LoginForm'
+import Shop from '../Components/Shop'
+import Contact from '../Components/Contact'
+import DevQuiz from '../Components/DevQuiz'
+import MarketingQuiz from "../Components/MarketingQuiz";
+import DesignQuiz from "../Components/DesignQuiz";
+import Resultat from "../Components/Resultat";
+
+
+const Navigation = createStackNavigator(
+    {
+        HomeScreen: {
+            screen: HomeScreen,
+>>>>>>> Stashed changes
         },
-    },
 
-    ClassicQuiz: {
-        screen:ClassicQuiz
+        ProfileScreen: {
+            screen: ProlileScreen,
+            navigationOptions: {
+                title: 'Profil',
+            },
+        },
 
-    },
+        ClassicQuiz: {
+            screen: ClassicQuiz
 
+<<<<<<< Updated upstream
 
     CoursLang: {
         screen:CoursLang
@@ -42,11 +68,19 @@ import CoursLang from "../Components/CoursLang";
     FicheMet: {
         screen:FicheMet
     },
+=======
+        },
 
-    Contact: {
-        screen:Contact
-    },
+        Shop: {
+            screen: Shop
+        },
+>>>>>>> Stashed changes
 
+        Contact: {
+            screen: Contact
+        },
+
+<<<<<<< Updated upstream
     Condition: {
         screen:Condition
     },
@@ -55,18 +89,46 @@ import CoursLang from "../Components/CoursLang";
         screen:LoginForm
     }
 },
+=======
+        LoginForm: {
+            screen: LoginForm
+        },
+        DevQuiz: {
+            screen: DevQuiz
+        },
+        MarketingQuiz: {
+            screen: MarketingQuiz
+        },
+        DesignQuiz: {
+            screen: DesignQuiz
+        },
+        ChoixQuiz: {
+            screen: ChoixQuiz
+        },
+        Resultat: {
+            screen: Resultat
+        },
+    },
+>>>>>>> Stashed changes
 
 
 
     {
         initialRouteName: "HomeScreen",
         navigationOptions: {
+<<<<<<< Updated upstream
           headerStyle: {
             backgroundColor: '#ff8e40'
           },
           headerTintColor: "#FFF",
+=======
+            headerStyle: {
+                backgroundColor: '#FFCC66'
+            },
+            headerTintColor: "#FFF",
+>>>>>>> Stashed changes
         }
-      }
-    );
+    }
+);
 
 export default Navigation

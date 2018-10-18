@@ -1,16 +1,31 @@
 import React from 'react';
+<<<<<<< Updated upstream
 import { StyleSheet, Text, View, Image, Button, StatusBar, ScrollView, Dimensions, TouchableOpacity, For } from 'react-native';
 import { FormLabel, FormInput, FormValidationMessage } from 'react-native-elements'
 import {Container, Form, Input, Item, Label} from "native-base";
+=======
+import {
+    StyleSheet,
+    Text,
+    View,
+    Image,
+    Button,
+    StatusBar,
+    ScrollView,
+    Dimensions,
+    TouchableOpacity,
+    For
+} from 'react-native';
+import {FormLabel, FormInput, FormValidationMessage} from 'react-native-elements'
+
+>>>>>>> Stashed changes
 export default class Contact extends React.Component {
 
 
     render() {
-            return (
+        return (
 
-                <View style={styles.mainContainer}>
-                    <Text style={styles.headerLabel}>Nous Contacter</Text>
-
+<<<<<<< Updated upstream
                         <Form>
                             <Item floatingLabel>
                                 <Label>Email</Label>
@@ -41,9 +56,24 @@ export default class Contact extends React.Component {
 
 
 
+=======
+            <View style={styles.mainContainer}>
+                <Text style={styles.headerLabel}>Nous Contacter</Text>
+
+                <View>
+>>>>>>> Stashed changes
 
                 </View>
-            );
+
+                <FormLabel>Email</FormLabel>
+                <FormInput/>
+                <FormValidationMessage>{'Champs Requis'}</FormValidationMessage>
+                <FormLabel>Message </FormLabel>
+                <FormInput/>
+                <FormValidationMessage>{'Champs Requis'}</FormValidationMessage>
+
+            </View>
+        );
 
 
     }
