@@ -56,20 +56,17 @@ constructor(props) {
     );
   }
 }
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
     backgroundColor: '#ff9f44',
   },
-
   header: {
     flex: 1, 
     alignItems: 'center',
     justifyContent: 'center'
     },
-
   headerLabel: {
     fontSize: 16,
     fontWeight: 'bold',
@@ -77,13 +74,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     color: '#4267B2',
   },
-
   buttons: {
     flex: 1, 
     alignItems: 'center',
     justifyContent: 'center'
 },
-
   buttonInvite: {
     width: 150,
     height: 40,
@@ -93,7 +88,6 @@ const styles = StyleSheet.create({
     marginBottom: 30,
     borderRadius: 5,
   },
-
   buttonFacebook: {
     width: 250,
     height: 50,
@@ -103,7 +97,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginBottom: 15,
   },
-
   label: {
     fontSize: 16,
     fontWeight: 'normal',
