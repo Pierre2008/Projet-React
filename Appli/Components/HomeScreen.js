@@ -1,120 +1,107 @@
 import React from 'react';
 import * as firebase from 'firebase';
-import {StyleSheet, Text, View, Image, TouchableOpacity, StatusBar, SafeAreaView,} from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableOpacity, StatusBar, SafeAreaView,} from 'react-native';
 
 
 export default class HomeScreen extends React.Component {
 
-    constructor(props) {
-        super(props)
-        this.state = ({
-            user: '',
+constructor(props) {
+  super(props)
+  this.state= ({
+    user: '',
+  })
+}
+
+  componentDidMount() {
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user!= null) {
+      this.props.navigation.navigate("ProfileScreen");
+      console.log(user);
+      }
+    })
+  }
+  
+  async loginWithFacebook() {
+   const { type, token } = await Expo.Facebook.logInWithReadPermissionsAsync
+    ('1902257816476632', { permissions: ['public_profile'] })
+    if (type == 'success') {
+        const credential = firebase.auth.FacebookAuthProvider.credential(token)
+        firebase.auth().signInAndRetrieveDataWithCredential(credential).catch((error) => {
+          console.log(error);
         })
     }
-
-    componentDidMount() {
-        firebase.auth().onAuthStateChanged((user) => {
-            if (user != null) {
-                this.props.navigation.navigate("ProfileScreen");
-            }
-        })
-    }
-
-    async loginWithFacebook() {
-        const {type, token} = await Expo.Facebook.logInWithReadPermissionsAsync
-        ('1902257816476632', {permissions: ['public_profile']})
-        if (type === 'success') {
-            const credential = firebase.auth.FacebookAuthProvider.credential(token)
-            firebase.auth().signInAndRetrieveDataWithCredential(credential).catch((error) => {
-                console.log(error);
-            })
-        }
-    }
-
-    render() {
-        return (
-            <View style={styles.container}>
-                <StatusBar backgroundColor='#FFCC66'/>
-                <View style={styles.header}>
-                    <Image
-                        source={require('../assets/Images/logo.png')}
-                        style={{marginBottom: 30}}
-                    />
-                    <Text style={styles.headerLabel}>Découvre le domaine du Web en t'amusant</Text>
-                </View>
-                <View style={styles.buttons}>
-                    <TouchableOpacity style={styles.buttonFacebook} onPress={() => this.loginWithFacebook()}>
+  } 
+  
+  render() {
+    return (
+        <View style={styles.container}>
+        <StatusBar backgroundColor = '#FFCC66' />
+            <View style={styles.header}>
+                <Image
+                    source={require('../assets/Images/logo.png')}
+                    style={{marginBottom: 30}}
+                />
+                <Text style={styles.headerLabel}>Découvre le domaine du Web en t'amusant</Text>
+            </View>
+            <View style={styles.buttons}>
+                    <TouchableOpacity style={styles.buttonFacebook} onPress={() => this.loginWithFacebook() }>
                         <Text style={styles.label}>Connexion avec Facebook</Text>
                     </TouchableOpacity>
-
-                    <TouchableOpacity
-                        style={styles.buttonInvite}
-                        onPress={() => this.props.navigation.navigate('LoginForm')}>
+        
+                    <TouchableOpacity style={styles.buttonInvite} onPress={() => this.props.navigation.navigate('LoginForm')}>
                         <Text style={styles.label}>Invité</Text>
-                    </TouchableOpacity>
-                </View>
+                    </TouchableOpacity>      
             </View>
-        );
-    }
+    </View>
+    );
+  }
 }
 const styles = StyleSheet.create({
-<<<<<<< Updated upstream
   container: {
     flex: 1,
     alignItems: 'center',
-    backgroundColor: '#ff9f44',
+    backgroundColor: '#FFCC66',
   },
   header: {
     flex: 1, 
     alignItems: 'center',
     justifyContent: 'center'
-=======
-    container: {
-        flex: 1,
-        alignItems: 'center',
-        backgroundColor: '#FFCC66',
     },
-    header: {
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center'
-    },
-    headerLabel: {
-        fontSize: 16,
-        fontWeight: 'bold',
-        justifyContent: 'center',
-        alignItems: 'center',
-        color: '#4267B2',
-    },
-    buttons: {
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center'
-    },
-    buttonInvite: {
-        width: 150,
-        height: 40,
-        backgroundColor: '#D9D9D9',
-        justifyContent: 'center',
-        alignItems: 'center',
-        marginBottom: 30,
-        borderRadius: 5,
-    },
-    buttonFacebook: {
-        width: 250,
-        height: 50,
-        backgroundColor: '#4267B2',
-        borderRadius: 5,
-        justifyContent: 'center',
-        alignItems: 'center',
-        marginBottom: 15,
-    },
-    label: {
-        fontSize: 16,
-        fontWeight: 'normal',
-        justifyContent: 'center',
-        alignItems: 'center',
-        color: '#FFF',
->>>>>>> Stashed changes
-    },
+  headerLabel: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    justifyContent: 'center',
+    alignItems: 'center',
+    color: '#4267B2',
+  },
+  buttons: {
+    flex: 1, 
+    alignItems: 'center',
+    justifyContent: 'center'
+},
+  buttonInvite: {
+    width: 150,
+    height: 40,
+    backgroundColor: '#D9D9D9',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: 30,
+    borderRadius: 5,
+  },
+  buttonFacebook: {
+    width: 250,
+    height: 50,
+    backgroundColor: '#4267B2',
+    borderRadius: 5,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: 15,
+  },
+  label: {
+    fontSize: 16,
+    fontWeight: 'normal',
+    justifyContent: 'center',
+    alignItems: 'center',
+    color: '#FFF',
+  },
 });
