@@ -1,11 +1,14 @@
 import { createStackNavigator } from 'react-navigation'
 import  ClassicQuiz from '../Components/ClassicQuiz'
-import  CompetQuiz from '../Components/CompetQuiz'
 import  ProlileScreen from '../Components/ProfileScreen'
 import  HomeScreen from '../Components/HomeScreen'
 import  LoginForm from '../Components/LoginForm'
-import  Shop from '../Components/Shop'
+import  ShopCate from '../Components/ShopCate'
 import  Contact from '../Components/Contact'
+import Condition from '../Components/Condition'
+import FicheMet from "../Components/FicheMet";
+import CoursLang from "../Components/CoursLang";
+
 
 
  const Navigation = createStackNavigator(
@@ -26,16 +29,26 @@ import  Contact from '../Components/Contact'
 
     },
 
-    CompetQuiz: {
-        screen:CompetQuiz 
+
+    CoursLang: {
+        screen:CoursLang
     },
 
-    Shop: {
-        screen:Shop
+    ShopCate: {
+        screen:ShopCate
+
+    },
+
+    FicheMet: {
+        screen:FicheMet
     },
 
     Contact: {
         screen:Contact
+    },
+
+    Condition: {
+        screen:Condition
     },
 
     LoginForm: {
@@ -43,11 +56,13 @@ import  Contact from '../Components/Contact'
     }
 },
 
+
+
     {
         initialRouteName: "HomeScreen",
         navigationOptions: {
           headerStyle: {
-            backgroundColor: '#FFCC66'
+            backgroundColor: '#ff8e40'
           },
           headerTintColor: "#FFF",
         }

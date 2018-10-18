@@ -21,7 +21,7 @@ firebase.initializeApp(firebaseConfig);
 export default class LoginForm extends React.Component {
 
     constructor(props){
-        super(props)
+        super(props);
 
         this.state =({
             email: '',
@@ -33,7 +33,7 @@ export default class LoginForm extends React.Component {
 
         try {
             if (this.state.password.length < 6) {
-                alert('Veuillez entrez un mot de passe de minimum 6 caractères.')
+                alert('Veuillez entrez un mot de passe de minimum 6 caractères.');
                 return;
             }
             firebase.auth().createUserWithEmailAndPassword(email, password).then(firebase.auth().onAuthStateChanged((user) => {
@@ -48,7 +48,7 @@ export default class LoginForm extends React.Component {
             console.log(error.toString());
         }
         
-    }
+    };
 
     signInUser = (email, password) => {
         try {   
@@ -67,7 +67,7 @@ export default class LoginForm extends React.Component {
             console.log(error.toString());
         }
     
-    }
+    };
 
     render() {
       return ( 
@@ -79,7 +79,7 @@ export default class LoginForm extends React.Component {
                 <Form>
                     <Item floatingLabel>
                         <Label>Email</Label>
-                        <Input 
+                        <Input
                         autoCorrect={false}
                         autoCapitalize= "none"
                         onChangeText= {(email) => this.setState({email})}
@@ -127,7 +127,7 @@ export default class LoginForm extends React.Component {
     container: {
         flex: 1,
         padding: 10,
-        backgroundColor: '#FFCC66',
+        backgroundColor: '#ff9f44',
     },
 
 

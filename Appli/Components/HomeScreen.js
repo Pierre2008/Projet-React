@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
-    backgroundColor: '#FFCC66',
+    backgroundColor: '#ff9f44',
   },
 
   header: {

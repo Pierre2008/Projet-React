@@ -81,7 +81,7 @@ export default class ClassicScreen extends React.Component {
 const styles = StyleSheet.create({
     mainContainer: {
       flex: 1,
-      backgroundColor: '#FFCC66',
+      backgroundColor: '#ff9f44',
       alignItems: 'center',
     },
 
