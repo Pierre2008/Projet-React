@@ -88,13 +88,13 @@ export default class ProfileScreen extends React.Component {
 
                         <TouchableOpacity
                             style={styles.buttonsCours}
-                          >
+                        >
                             <Text style={styles.buttonsCoursText}>Design</Text>
                         </TouchableOpacity>
 
                         <TouchableOpacity
                             style={styles.buttonsCours}
-                            >
+                        >
                             <Text style={styles.buttonsCoursText}>Marketing</Text>
                         </TouchableOpacity>
 
@@ -111,7 +111,6 @@ export default class ProfileScreen extends React.Component {
                                     style={styles.buttonContactText}>Contact Staff
                                 </Text>
                             </TouchableOpacity>
-
                         </View>
 
                         <TouchableOpacity style={styles.buttonCondition}
@@ -229,13 +228,10 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
     },
 
-
     buttonContactText: {
         color: '#FFF',
         fontSize: 14,
         fontWeight: 'bold',
-
-
     },
 
     buttonContact: {
