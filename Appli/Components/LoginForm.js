@@ -16,8 +16,6 @@ export var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 
-        
-
 export default class LoginForm extends React.Component {
 
     constructor(props){

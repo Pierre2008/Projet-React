@@ -1,101 +1,129 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image, TouchableOpacity, Dimensions, ScrollView } from 'react-native';
+import {StyleSheet, Text, View, Image, TouchableOpacity, Dimensions, ScrollView,} from 'react-native';
 import ProgressBarAnimated from 'react-native-progress-bar-animated';
-import {Button} from "react-native-elements";
 
 export default class ProfileScreen extends React.Component {
     render() {
 
         const barWidth = Dimensions.get('screen').width - 200;
         const progressCustomStyles = {
-            backgroundColor: 'white', 
-            borderRadius: 5, }
+            backgroundColor: 'white',
+            borderRadius: 5,
+        };
         return (
             <ScrollView style={styles.container}>
                 <View style={styles.container}>
+
                     <View style={styles.coinsContainer}>
                         <TouchableOpacity
-                            onPress={() => this.props.navigation.navigate('Shop')}>
-                        <Image
-                            source={require('../assets/Images/coin.png')}
-                        />
-                        <Text style= {styles.quantityCoins}>200,000</Text>
+                            onPress={() => this.props.navigation.navigate('ShopCate')}>
+                            <Image
+                                source={require('../assets/Images/coin.png')}
+                            />
+                        </TouchableOpacity>
+                        <TouchableOpacity
+                            onPress={() => this.props.navigation.navigate('ShopCate')}>
+                            <Text style={styles.quantityCoins}>2,000</Text>
                         </TouchableOpacity>
                     </View>
+
                     <View style={styles.userContainer}>
                         <Image
                             source={require('../assets/Images/user.png')}
                         />
-                        <Text style={{fontSize: 17, color:'#FFF'}}>{this.props.displayName}</Text>
+                        <Text style={{fontSize: 17, color: '#FFF'}}>{this.props.displayName}</Text>
                     </View>
-                    <View style= {styles.achievementsMainContainer}>
-                        <View style= {styles.achievementsContainer}>
+                    <View style={styles.achievementsMainContainer}>
+                        <View style={styles.achievementsContainer}>
                             <ProgressBarAnimated
                                 {...progressCustomStyles}
                                 width={barWidth}
                                 value={20}
                                 backgroundColorOnComplete="#6CC644"
                             />
-                            <Image
-                                source={require('../assets/Images/podium.png')}
-                            />
+                            <View style={styles.img}>
+                                <Image
+                                    source={require('../assets/Images/podium.png')}
+                                />
+                            </View>
                         </View>
-                        <View style= {styles.achievementsContainer}>
+                        <View style={styles.achievementsContainer}>
+
                             <ProgressBarAnimated
-                            {...progressCustomStyles}
-                            width={barWidth}
-                            value={20}
-                            backgroundColorOnComplete="#6CC644"
+                                {...progressCustomStyles}
+                                width={barWidth}
+                                value={20}
+                                backgroundColorOnComplete="#6CC644"
                             />
+
                             <Image
-                            source={require('../assets/Images/trophy.png')}
+                                source={require('../assets/Images/trophy.png')}
                             />
                         </View>
                     </View>
 
                     <View style={styles.buttonsContainer}>
-                        <TouchableOpacity 
-                        style= {styles.buttonsPlay}
-                        onPress={() => this.props.navigation.navigate('ClassicQuiz')}>
-                        <Text style={styles.buttonsText}>Classique</Text>
+
+                        <TouchableOpacity
+                            style={styles.buttonsPlay}
+                            onPress={() => this.props.navigation.navigate('ChoixQuiz')}>
+                            <Text style={styles.buttonsText}>Jouer</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity style= {styles.buttonsPlay}
-                        onPress={() => this.props.navigation.navigate('CompetQuiz')}>
-                        <Text style= {styles.buttonsText}>Competition</Text>
+
+                    </View>
+
+                    <View style={styles.lineStyle}
+
+                    />
+                    <View style={styles.coursMainContainer}>
+                        <Text style={{fontSize: 18, fontWeight: 'bold', color: '#4267B2'}}>Cours disponibles</Text>
+                    </View>
+
+                    <View style={styles.coursContainer}>
+                        <TouchableOpacity
+                            style={styles.buttonsCours}
+                        >
+                            <Text style={styles.buttonsCoursText}>Dev</Text>
+                        </TouchableOpacity>
+
+                        <TouchableOpacity
+                            style={styles.buttonsCours}
+                          >
+                            <Text style={styles.buttonsCoursText}>Design</Text>
+                        </TouchableOpacity>
+
+                        <TouchableOpacity
+                            style={styles.buttonsCours}
+                            >
+                            <Text style={styles.buttonsCoursText}>Marketing</Text>
+                        </TouchableOpacity>
+
+
+                    </View>
+
+                    <View style={styles.lineStyle}
+                    />
+                    <View style={styles.ContainerEnd}>
+                        <View>
+                            <TouchableOpacity style={styles.buttonContact}
+                                              onPress={() => this.props.navigation.navigate('Contact')}>
+                                <Text
+                                    style={styles.buttonContactText}>Contact Staff
+                                </Text>
+                            </TouchableOpacity>
+
+                        </View>
+
+                        <TouchableOpacity style={styles.buttonCondition}
+                                          onPress={() => this.props.navigation.navigate('CGU')}>
+                            <Text
+                                style={styles.buttonContactText}>Condition d'utilisation
+                            </Text>
                         </TouchableOpacity>
                     </View>
 
-                    <View style={styles.coursMainContainer}>
-                        <Text style={{fontSize: 18, fontWeight: 'bold', color:'#4267B2'}}>Cours disponibles</Text>   
-                            <View style={styles.coursContainer}>
-                                <TouchableOpacity 
-                                style= {styles.buttonsCours}
-                                onPress={() => this.props.navigation.navigate('CoursDev')}>
-                                <Text style={styles.buttonsText}>Dev</Text>
-                                </TouchableOpacity>
-                                
-                                <TouchableOpacity
-                                style= {styles.buttonsCours}
-                                onPress={() => this.props.navigation.navigate('CoursDesign')}>
-                                <Text style= {styles.buttonsText}>Design</Text>
-                                </TouchableOpacity>
-                                
-                                <TouchableOpacity 
-                                style= {styles.buttonsCours}
-                                onPress={() => this.props.navigation.navigate('CoursMarketing')}>
-                                <Text style= {styles.buttonsText}>Marketing</Text>
-                                </TouchableOpacity>
-                            </View>
-                        <View>
-                            <Button
-                                onPress={() => this.props.navigation.navigate('Contact')}
-                                title= "Contacter Staff"
-                                color="#FFF"
-                            />
-                        </View>
-                    </View>
                 </View>
-                </ScrollView>
+            </ScrollView>
         );
     }
 }
@@ -103,77 +131,146 @@ export default class ProfileScreen extends React.Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#FFCC66',
+        backgroundColor: '#ff9f44',
     },
 
     coinsContainer: {
-        marginTop: 10,
-        marginLeft: 10,
+        marginTop: 20,
+        marginLeft: 20,
+        width: 200,
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'flex-start',
-      },
+    },
 
-      quantityCoins: {
+    quantityCoins: {
         fontSize: 16,
+        fontWeight: 'bold',
         marginLeft: 7,
-      },
-     
-      userContainer: {
+
+    },
+
+    userContainer: {
         marginTop: 50,
         alignItems: 'center',
-      },  
+    },
 
-      achievementsMainContainer: {
+    achievementsMainContainer: {
         marginTop: 50,
-        flexDirection: 'column', 
-      },
+        flexDirection: 'column',
+    },
 
-      achievementsContainer: {
-        flexDirection:  'row',
+    achievementsContainer: {
+        flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center'
 
-      },
+    },
 
-      buttonsContainer: {
+    buttonsContainer: {
         marginTop: 70,
         flexDirection: 'row',
         justifyContent: 'space-around'
-      },
+    },
 
-      buttonsPlay: {
-        width: 140,
-        height: 100,
+    buttonsPlay: {
+        width: 250,
+        height: 70,
         backgroundColor: '#4267B2',
-        alignItems: 'center', 
-        justifyContent: 'center',
-        
-      },
-
-      buttonsText: {
-        color: '#FFF',
-        fontSize: 18,
-        fontWeight: 'bold',
-      },
-
-      coursMainContainer: {
-        marginTop: 70,
         alignItems: 'center',
-      },
+        justifyContent: 'center',
+        borderRadius: 90,
+        borderWidth: 1,
+        borderColor: '#FFF',
 
-      coursContainer: {
+
+    },
+
+    buttonsText: {
+        color: '#FFF',
+        fontSize: 35,
+        fontWeight: 'bold',
+    },
+
+    coursMainContainer: {
         marginTop: 20,
-        flexDirection: 'row',
-        justifyContent: 'space-around'
-      },
+        alignItems: 'center',
 
-      buttonsCours: {
+    },
+
+    coursContainer: {
+        marginTop: 20,
+
+        flexDirection: 'row',
+        justifyContent: 'space-around',
+
+    },
+
+    ContainerEnd: {
+        marginTop: 20,
+        alignItems: 'center',
+
+    },
+
+    buttonsCours: {
         width: 100,
         height: 80,
         backgroundColor: '#4267B2',
-        alignItems: 'center', 
+        alignItems: 'center',
         justifyContent: 'center',
-      }
+        borderRadius: 10,
+        borderWidth: 1,
+        borderColor: '#FFF',
+    },
 
-});    
+    buttonsCoursText: {
+        color: '#FFF',
+        fontSize: 18,
+        fontWeight: 'bold',
+    },
+
+
+    buttonContactText: {
+        color: '#FFF',
+        fontSize: 14,
+        fontWeight: 'bold',
+
+
+    },
+
+    buttonContact: {
+        width: 150,
+        height: 40,
+        marginTop: 50,
+        backgroundColor: '#4267B2',
+        alignItems: 'center',
+        borderRadius: 10,
+        borderWidth: 1,
+        borderColor: '#FFF',
+        justifyContent: 'center',
+    },
+
+
+    buttonCondition: {
+        width: 250,
+        height: 50,
+        marginTop: 30,
+        backgroundColor: '#4267B2',
+        alignItems: 'center',
+        borderWidth: 1,
+        borderColor: '#FFF',
+        justifyContent: 'center',
+    },
+
+    lineStyle: {
+        borderWidth: 2.5,
+        borderColor: 'black',
+        marginTop: 60,
+    },
+
+    img: {
+
+        marginBottom: 10,
+    }
+
+});
