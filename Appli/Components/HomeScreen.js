@@ -37,14 +37,23 @@ constructor(props) {
         <View style={styles.container}>
         <StatusBar backgroundColor = '#FFCC66' />
             <View style={styles.header}>
+
                 <Image
                     source={require('../assets/Images/logo.png')}
                     style={{marginBottom: 30}}
                 />
+                <View/>
+
                 <Text style={styles.headerLabel}>Découvre le domaine du Web en t'amusant</Text>
+
             </View>
             <View style={styles.buttons}>
                     <TouchableOpacity style={styles.buttonFacebook} onPress={() => this.loginWithFacebook() }>
+
+                        <Image
+                            style={{width: 35, height: 35}}
+                            source={require('../assets/Images/fb.png')}
+                        />
                         <Text style={styles.label}>Connexion avec Facebook</Text>
                     </TouchableOpacity>
         
@@ -91,11 +100,12 @@ const styles = StyleSheet.create({
   buttonFacebook: {
     width: 250,
     height: 50,
-    backgroundColor: '#4267B2',
+    backgroundColor: '#245a9c',
     borderRadius: 5,
-    justifyContent: 'center',
+    justifyContent: 'space-around',
     alignItems: 'center',
     marginBottom: 15,
+    flexDirection: 'row',
   },
   label: {
     fontSize: 16,
@@ -104,4 +114,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     color: '#FFF',
   },
+   img: {
+        justifyContent:'center',
+       alignItems:'center'
+
+  },
+
 });

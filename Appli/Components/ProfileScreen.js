@@ -83,18 +83,30 @@ export default class ProfileScreen extends React.Component {
                         <TouchableOpacity
                             style={styles.buttonsCours}
                         >
+                            <Image
+
+                                source={require('../assets/Images/code.png')}
+                            />
                             <Text style={styles.buttonsCoursText}>Dev</Text>
                         </TouchableOpacity>
 
                         <TouchableOpacity
                             style={styles.buttonsCours}
-                        >
+                          >
+                            <Image
+
+                                source={require('../assets/Images/design.png')}
+                            />
                             <Text style={styles.buttonsCoursText}>Design</Text>
                         </TouchableOpacity>
 
                         <TouchableOpacity
                             style={styles.buttonsCours}
-                        >
+                            >
+                            <Image
+
+                                source={require('../assets/Images/market.png')}
+                            />
                             <Text style={styles.buttonsCoursText}>Marketing</Text>
                         </TouchableOpacity>
 
@@ -111,6 +123,7 @@ export default class ProfileScreen extends React.Component {
                                     style={styles.buttonContactText}>Contact Staff
                                 </Text>
                             </TouchableOpacity>
+
                         </View>
 
                         <TouchableOpacity style={styles.buttonCondition}
@@ -130,7 +143,7 @@ export default class ProfileScreen extends React.Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#ff9f44',
+        backgroundColor: '#ffcc66',
     },
 
     coinsContainer: {
@@ -179,8 +192,6 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         borderRadius: 90,
-        borderWidth: 1,
-        borderColor: '#FFF',
 
 
     },
@@ -214,24 +225,25 @@ const styles = StyleSheet.create({
     buttonsCours: {
         width: 100,
         height: 80,
-        backgroundColor: '#4267B2',
+        backgroundColor: '#ffffff',
         alignItems: 'center',
         justifyContent: 'center',
         borderRadius: 10,
-        borderWidth: 1,
-        borderColor: '#FFF',
     },
 
     buttonsCoursText: {
-        color: '#FFF',
+        color: '#4267b2',
         fontSize: 18,
         fontWeight: 'bold',
     },
+
 
     buttonContactText: {
         color: '#FFF',
         fontSize: 14,
         fontWeight: 'bold',
+
+
     },
 
     buttonContact: {
@@ -241,8 +253,6 @@ const styles = StyleSheet.create({
         backgroundColor: '#4267B2',
         alignItems: 'center',
         borderRadius: 10,
-        borderWidth: 1,
-        borderColor: '#FFF',
         justifyContent: 'center',
     },
 
@@ -253,13 +263,12 @@ const styles = StyleSheet.create({
         marginTop: 30,
         backgroundColor: '#4267B2',
         alignItems: 'center',
-        borderWidth: 1,
-        borderColor: '#FFF',
         justifyContent: 'center',
+        borderRadius:10,
     },
 
     lineStyle: {
-        borderWidth: 2.5,
+        borderWidth: 2,
         borderColor: 'black',
         marginTop: 60,
     },

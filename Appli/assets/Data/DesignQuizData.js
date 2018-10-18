@@ -5,7 +5,7 @@ export const designJsonData = {
         {
             title: "Que signifie le 'CC' de Adobe CC ?",
             answer: [
-                {nom: "Claude Créatif", goodAnswer: false},
+                {nom: "Cloud Créatif", goodAnswer: false},
                 {nom: "Copie carbone", goodAnswer: false},
                 {nom: "Contre créatif", goodAnswer: false},
                 {nom: "Créative Cloud", goodAnswer: true}

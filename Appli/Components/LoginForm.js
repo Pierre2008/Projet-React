@@ -1,6 +1,6 @@
 import React from 'react';
 import * as firebase from 'firebase';
-import { StyleSheet, Text, Image } from 'react-native';
+import {StyleSheet, Text, Image, View} from 'react-native';
 import { Container, Form, Input, Item, Button, Label,  } from 'native-base';
 
 
@@ -70,10 +70,11 @@ export default class LoginForm extends React.Component {
     render() {
       return ( 
             <Container style= {styles.container}>
+                <View style={styles.header}>
                 <Image
-                style={{justifyContent:'center',}}
                 source={require('../assets/Images/logo.png')}
                 />
+                </View>
                 <Form>
                     <Item floatingLabel>
                         <Label>Email</Label>
@@ -127,6 +128,11 @@ export default class LoginForm extends React.Component {
         padding: 10,
         backgroundColor: '#FFCC66',
     },
+
+      header: {
+          alignItems: 'center',
+          justifyContent: 'center'
+      },
 
 
 });
