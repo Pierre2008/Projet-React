@@ -42,9 +42,7 @@ export default class DevQuiz extends React.Component {
             })
         }
         else {
-            this.setState({
-                score: this.state.score - 2,
-            })
+            return(null)
         }
     };
 

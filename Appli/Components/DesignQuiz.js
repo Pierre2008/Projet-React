@@ -1,6 +1,6 @@
 import {designJsonData} from "../assets/Data/designQuizData";
 import React from "react";
-import {StyleSheet, Text, TouchableHighlight, TouchableOpacity, View} from "react-native";
+import {StyleSheet, Text, TouchableHighlight, TouchableOpacity, View, Modal} from "react-native";
 
 export default class DesignQuiz extends React.Component {
 
@@ -10,46 +10,48 @@ export default class DesignQuiz extends React.Component {
             count: 0,
             response: false,
             score: 0,
+            questionNumber: 0,
+            visible: false,
+            disable: false,
         })
     }
 
-    nextQuestion() {
+    _nextQuestion = () => {
+        this._scoring();
         if (this.state.count === 4) {
-            this.props.navigation.navigate('Resultat');
+            this.setState({visible: true})
 
         }
         else {
+            console.log(this.state.questionNumber, 'next');
             this.setState({
                 count: this.state.count + 1,
                 response: false,
+                questionNumber: false,
+                disable: false,
+                enable: false,
+                visible: false,
             })
         }
-    }
+    };
 
-    scoring() {
-        if (designJsonData.questions.response === this.state.response) {
+    _scoring = () => {
+        if (this.state.questionNumber === true) {
             this.setState({
                 score: this.state.score + 1,
             })
         }
-        else if (designJsonData.questions.response !== this.state.response) {
+        else {
             this.setState({
                 score: this.state.score - 2,
             })
         }
-        else {
-            console.log('error');
-        }
-    }
+    };
 
     render() {
         console.log(this.state.score);
         return (
             <View style={styles.mainContainer}>
-                <View style={styles.titleContainer}>
-                    <Text style={styles.questionTitle}></Text>
-                </View>
-
                 <View style={styles.questionContainer}>
                     <Text>{designJsonData.questions[this.state.count].title}</Text>
                 </View>
@@ -59,8 +61,14 @@ export default class DesignQuiz extends React.Component {
                             <TouchableHighlight
                                 style={[styles.answersButtons, {backgroundColor: (el.goodAnswer === true && this.state.response === true) ? "#006400" : "white"}]}
                                 onPress={() => {
-                                    this.setState({response: true});
-                                    this.scoring()
+                                    this.setState({
+                                        questionNumber: el.goodAnswer,
+                                        response: true,
+                                        disable: true,
+                                        enable: true,
+                                        visible: false
+                                    });
+
                                 }}
                                 underlayColor={'white'}
                             >
@@ -73,43 +81,75 @@ export default class DesignQuiz extends React.Component {
 
                 <View style={{flex: 1}}>
                     <TouchableOpacity
-                        onPress={() => this.nextQuestion()}>
+                        onPress={() => this._nextQuestion()}>
                         <Text>Question Suivante</Text>
                     </TouchableOpacity>
                 </View>
+                <Modal
+                    animationType="slide"
+                    transparent={false}
+                    visible={this.state.visible}
+                >
+                    <View style={styles.ModalScore}>
+                        <Text>Votre score est de {this.state.score} /5</Text>
+                        <TouchableOpacity
+                            style={styles.buttonNextGame}
+                            onPress={() => {
+                                this.props.navigation.navigate('ChoixQuiz');
+                                this.setState({visible: false})
+                            }}
+                        >
+                            <Text>Jouer à un autre quizz</Text>
+                        </TouchableOpacity>
+                    </View>
+                </Modal>
             </View>
+
 
         );
     }
 };
+const styles = StyleSheet.create({
+    mainContainer: {
+        flex: 1,
+        backgroundColor: '#FFCC66',
+    },
+    answersContainer: {
+        flex: 2,
+        marginTop: 50,
+        justifyContent: 'space-between',
+        alignItems: 'center',
 
-const
-    styles = StyleSheet.create({
-        mainContainer: {
-            flex: 1,
-            backgroundColor: '#FFCC66',
-        },
-        answersContainer: {
-            flex: 2,
-            marginTop: 50,
-            justifyContent: 'space-between',
-            alignItems: 'center',
-
-        },
-        answersButtons: {
-            width: 300,
-            height: 50,
-            alignItems: 'center',
-            justifyContent: 'center',
-            borderRadius: 5,
+    },
+    answersButtons: {
+        width: 300,
+        height: 50,
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderRadius: 5,
 
 
-        },
-        buttonNext: {
-            backgroundColor: '#4267B2',
-            width: 90,
-            height: 40,
-            alignItems: 'center',
-            justifyContent: 'center',
-        }
-    });
+    },
+    buttonNext: {
+        backgroundColor: '#4267B2',
+        width: 90,
+        height: 40,
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+
+    ModalScore: {
+        flex: 1,
+        backgroundColor: '#4267B2',
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
+
+    buttonNextGame: {
+        backgroundColor: '#FFF',
+        width: 90,
+        height: 40,
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+});
