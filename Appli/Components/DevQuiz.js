@@ -100,7 +100,7 @@ export default class DevQuiz extends React.Component {
                                 style={{marginBottom: 30}}
                             />
                         </View>
-                        <View style={{flex: 1, justifyContent:'space-between'}}>
+                        <View style={{flex: 1, justifyContent: 'space-between'}}>
                             <Text style={styles.headerLabel}>Votre score est de {this.state.score} / 10</Text>
                         </View>
                         <View style={styles.buttonNextGame}>
@@ -108,7 +108,7 @@ export default class DevQuiz extends React.Component {
                                 full
                                 rounded
                                 primary
-                                onPress= {() => {
+                                onPress={() => {
                                     this.props.navigation.navigate('ChoixQuiz');
                                     this.setState({visible: false})
                                 }}
@@ -136,7 +136,6 @@ const styles = StyleSheet.create({
         questionContainer: {
         width: 300,
         height: 150,
-        marginTop: 50,
         borderRadius: 5,
         alignItems: 'center',
         justifyContent: 'center',

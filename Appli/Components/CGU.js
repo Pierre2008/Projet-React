@@ -24,7 +24,7 @@ export default class CGU extends React.Component {
 const styles = StyleSheet.create({
     mainContainer: {
         flex: 1,
-        backgroundColor: '#ff9f44',
+        backgroundColor: '#FFCC66',
         alignItems: 'center',
     },
 

@@ -49,10 +49,10 @@ export const devJsonData = {
         },
         {
             title: "Quel sera la sortie du code suivant ?\n" +
-            "print (int) ( (0.1+0.7) * 10);",
+                "print (int) ( (0.1+0.7) * 10);",
             answer: [
-                {nom: "7", goodAnswer: true},
-                {nom: "8", goodAnswer: false},
+                {nom: "7", goodAnswer: false},
+                {nom: "8", goodAnswer: true},
                 {nom: "9", goodAnswer: false},
                 {nom: "0", goodAnswer: false}
             ]

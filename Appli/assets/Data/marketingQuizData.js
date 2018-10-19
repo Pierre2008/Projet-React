@@ -7,7 +7,10 @@ export const marketingJsonData = {
             answer: [
                 {nom: "Fournir les fichiers robots.txt et sitemap.xml.", goodAnswer: false},
                 {nom: "Que la vitesse de chargement des pages soit réduite au minimum.", goodAnswer: false},
-                {nom: "Avoir bien défini les titres et les descriptions des pages, incluant vos mots clés.", goodAnswer: true},
+                {
+                    nom: "Avoir bien défini les titres et les descriptions des pages, incluant vos mots clés.",
+                    goodAnswer: true
+                },
                 {nom: "Respecter un ratio textes-images de 60-40 %.", goodAnswer: false}
             ]
         },
@@ -15,8 +18,14 @@ export const marketingJsonData = {
             title: "En tant que responsable du contenu, dans une optique de référencement organique je pense surtout à ..",
             answer: [
                 {nom: "Demander des idées à tata Evelyne", goodAnswer: false},
-                {nom: "Publier régulièrement des informations sur mon site et sur les réseaux sociaux", goodAnswer: true},
-                {nom: "Fournir un contenu riche et original d’au moins 300 mots par page, et des illustrations ", goodAnswer: false},
+                {
+                    nom: "Publier régulièrement des informations sur mon site et sur les réseaux sociaux",
+                    goodAnswer: true
+                },
+                {
+                    nom: "Fournir un contenu riche et original d’au moins 300 mots par page, et des illustrations ",
+                    goodAnswer: false
+                },
                 {nom: "Ne pas reprendre tel quel du contenu trouvé ailleurs.", goodAnswer: false}
             ]
         },
