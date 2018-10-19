@@ -18,7 +18,7 @@ export default class DevQuiz extends React.Component {
 
     _nextQuestion = () => {
         this._scoring();
-        if (this.state.count === 4) {
+        if (this.state.count === 9) {
             this.setState({visible: true})
 
         }
@@ -101,7 +101,7 @@ export default class DevQuiz extends React.Component {
                             />
                         </View>
                         <View style={{flex: 1, justifyContent:'space-between'}}>
-                            <Text style={styles.headerLabel}>Votre score est de {this.state.score} /5</Text>
+                            <Text style={styles.headerLabel}>Votre score est de {this.state.score} / 10</Text>
                             <Button
                                 style={styles.buttonNextGame}
                                 full
