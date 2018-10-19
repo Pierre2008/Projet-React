@@ -21,7 +21,7 @@ export const marketingJsonData = {
             ]
         },
         {
-            title: "L’indicateur « QS » Quality Score est basé sur,
+            title: "L’indicateur « QS » Quality Score est basé sur",
             answer: [
                 {nom: "La cohérence entre les mots clés et la page en lien (landing page).", goodAnswer: false},
                 {nom: "La cohérence entre la landing page et l’annonce.", goodAnswer: false},

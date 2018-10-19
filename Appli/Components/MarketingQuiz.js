@@ -102,19 +102,22 @@ export default class DevQuiz extends React.Component {
                         </View>
                         <View style={{flex: 1, justifyContent:'space-between'}}>
                             <Text style={styles.headerLabel}>Votre score est de {this.state.score} / 10</Text>
-                            <Button
-                                style={styles.buttonNextGame}
-                                full
-                                rounded
-                                primary
-                                onPress= {() => {
-                                    this.props.navigation.navigate('ChoixQuiz');
-                                    this.setState({visible: false})
-                                }}
-                            >
-                                <Text>Jouer une autre partie</Text>
-                            </Button>
                         </View>
+                            <View style={styles.buttonNextGame}>
+                                <TouchableOpacity
+                                    full
+                                    rounded
+                                    primary
+                                    onPress= {() => {
+                                        this.props.navigation.navigate('ChoixQuiz');
+                                        this.setState({visible: false})
+                                    }}
+                                >
+                                    <Text style={{color:'#FFF', fontSize: 14,
+                                        fontWeight: 'bold' }}>Jouer une autre partie</Text>
+
+                                </TouchableOpacity>
+                            </View>
                     </View>
                 </Modal>
             </View>
@@ -190,9 +193,10 @@ const styles = StyleSheet.create({
     },
 
     buttonNextGame: {
-        backgroundColor: '#FFF',
-        width: 90,
-        height: 40,
+        backgroundColor: '#4267b2',
+        borderRadius:5,
+        width: 170,
+        height: 50,
         alignItems: 'center',
         justifyContent: 'center',
     },

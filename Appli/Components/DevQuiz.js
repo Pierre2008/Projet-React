@@ -102,8 +102,9 @@ export default class DevQuiz extends React.Component {
                         </View>
                         <View style={{flex: 1, justifyContent:'space-between'}}>
                             <Text style={styles.headerLabel}>Votre score est de {this.state.score} / 10</Text>
-                            <Button
-                                style={styles.buttonNextGame}
+                        </View>
+                        <View style={styles.buttonNextGame}>
+                            <TouchableOpacity
                                 full
                                 rounded
                                 primary
@@ -112,8 +113,10 @@ export default class DevQuiz extends React.Component {
                                     this.setState({visible: false})
                                 }}
                             >
-                                <Text>Jouer une autre partie</Text>
-                            </Button>
+                                <Text style={{color:'#FFF', fontSize: 14,
+                                    fontWeight: 'bold' }}>Jouer une autre partie</Text>
+
+                            </TouchableOpacity>
                         </View>
                     </View>
                 </Modal>
@@ -123,14 +126,14 @@ export default class DevQuiz extends React.Component {
 };
 
 const styles = StyleSheet.create({
-    mainContainer: {
+        mainContainer: {
         flex: 1,
         backgroundColor: '#FFCC66',
         alignItems: 'center',
         justifyContent: 'space-around'
     },
-    /* CONTAINER QUESTION */
-    questionContainer: {
+        /* CONTAINER QUESTION */
+        questionContainer: {
         width: 300,
         height: 150,
         marginTop: 50,
@@ -139,20 +142,20 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         backgroundColor: '#FFF'
     },
-    /* Answers Container */
-    answersContainer: {
+        /* Answers Container */
+        answersContainer: {
         flex: 2,
         marginTop: 50,
     },
-    /* Answers Buttons */
-    answersButtons: {
+        /* Answers Buttons */
+        answersButtons: {
         width: 300,
         height: 50,
         alignItems: 'center',
         justifyContent: 'center',
         borderRadius: 5,
     },
-    buttonNext: {
+        buttonNext: {
         backgroundColor: '#4267B2',
         width: 150,
         height: 50,
@@ -160,28 +163,28 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         borderRadius: 10,
     },
-    buttonNextQuestion: {
+        buttonNextQuestion: {
         color: '#FFF',
         fontSize: 14,
         fontWeight: 'bold',
         backgroundColor: '#4267B2'
     },
 
-    /* VUE SCORE */
-    ModalScore: {
+        /* VUE SCORE */
+        ModalScore: {
         flex: 1,
         backgroundColor: '#FFCC66',
         alignItems: 'center',
         justifyContent: 'center',
     },
 
-    header: {
+        header: {
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
         marginTop: 70
     },
-    headerLabel: {
+        headerLabel: {
         fontSize: 16,
         fontWeight: 'bold',
         justifyContent: 'center',
@@ -189,11 +192,15 @@ const styles = StyleSheet.create({
         color: '#4267B2',
     },
 
-    buttonNextGame: {
-        backgroundColor: '#FFF',
-        width: 90,
-        height: 40,
+        buttonNextGame: {
+        backgroundColor: '#4267b2',
+        borderRadius:5,
+        width: 170,
+        height: 50,
         alignItems: 'center',
         justifyContent: 'center',
     },
+
+
+
 });
