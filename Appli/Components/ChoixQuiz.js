@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, Text, View, Image, TouchableOpacity} from 'react-native';
+import {StyleSheet, Text, View, Image, TouchableOpacity, ScrollView} from 'react-native';
 import {Button} from "react-native-elements";
 
 export default class ChoixQuiz extends React.Component {
@@ -17,22 +17,16 @@ export default class ChoixQuiz extends React.Component {
                     <TouchableOpacity
                         style={styles.buttonsPlay}
                         onPress={() => this.props.navigation.navigate('DevQuiz')}>
-                        <Text style={styles.Label}>Développement</Text>
+                        <Text style={styles.buttonContactText}>Développement</Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.buttonsPlay}
                                       onPress={() => this.props.navigation.navigate('DesignQuiz')}>
-                        <Text style={styles.Label}>Design</Text>
+                        <Text style={styles.buttonContactText}>Design</Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.buttonsPlay}
                                       onPress={() => this.props.navigation.navigate('MarketingQuiz')}>
-                        <Text style={styles.Label}>Marketing</Text>
+                        <Text style={styles.buttonContactText}>Marketing</Text>
                     </TouchableOpacity>
-                </View>
-                <View style={styles.buttonContactContainer}>
-                    <TouchableOpacity style={styles.buttonContact}
-                                      onPress={() => this.props.navigation.navigate('Contact')}>
-                        <Text style={styles.buttonContactText}>Contact Staff</Text>
-                    </TouchableOpacity >
                 </View>
             </View>
         )
@@ -42,12 +36,11 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#FFCC66',
-        alignItems: 'center'
     },
     header: {
-        flex: 2,
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        marginTop: 20
     },
     headerLabel: {
         fontSize: 16,
@@ -55,42 +48,27 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         color: '#4267B2',
+        marginTop: 50,
     },
-
     buttonsContainer: {
-        flex: 1,
         flexDirection: 'row',
         justifyContent: 'space-around',
         flexWrap: 'wrap',
+        marginTop: 80
     },
-
     buttonsPlay: {
         width: 140,
-        height: 100,
+        height: 80,
         backgroundColor: '#4267B2',
         alignItems: 'center',
         justifyContent: 'center',
         borderRadius: 40,
-    },
-    Label: {
-        fontSize: 16,
-        fontWeight: 'normal',
-        justifyContent: 'center',
-        alignItems: 'center',
-        color: 'white',
     },
     buttonContactContainer: {
         flex: 2,
         alignItems: 'center',
         justifyContent: 'center',
     },
-
-    buttonContact: {
-        alignItems: 'center',
-        justifyContent: 'center',
-        width: 150
-    },
-
     buttonContactText: {
         color: '#FFF',
         fontSize: 14,

@@ -13,7 +13,6 @@ import CoursLang from "../Components/CoursLang";
 import CGU from "../Components/CGU";
 
 
-
 const Navigation = createStackNavigator(
     {
         HomeScreen: {
@@ -38,7 +37,7 @@ const Navigation = createStackNavigator(
             screen: LoginForm
         },
         DevQuiz: {
-            screen: DevQuiz
+            screen: DevQuiz,
         },
         MarketingQuiz: {
             screen: MarketingQuiz

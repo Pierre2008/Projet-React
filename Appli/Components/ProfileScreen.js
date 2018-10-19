@@ -13,7 +13,6 @@ export default class ProfileScreen extends React.Component {
         return (
             <ScrollView style={styles.container}>
                 <View style={styles.container}>
-
                     <View style={styles.coinsContainer}>
                         <TouchableOpacity
                             onPress={() => this.props.navigation.navigate('ShopCate')}>
@@ -26,7 +25,6 @@ export default class ProfileScreen extends React.Component {
                             <Text style={styles.quantityCoins}>2,000</Text>
                         </TouchableOpacity>
                     </View>
-
                     <View style={styles.userContainer}>
                         <Image
                             source={require('../assets/Images/user.png')}
@@ -48,92 +46,62 @@ export default class ProfileScreen extends React.Component {
                             </View>
                         </View>
                         <View style={styles.achievementsContainer}>
-
                             <ProgressBarAnimated
                                 {...progressCustomStyles}
                                 width={barWidth}
                                 value={20}
                                 backgroundColorOnComplete="#6CC644"
                             />
-
                             <Image
                                 source={require('../assets/Images/trophy.png')}
                             />
                         </View>
                     </View>
-
                     <View style={styles.buttonsContainer}>
-
                         <TouchableOpacity
                             style={styles.buttonsPlay}
                             onPress={() => this.props.navigation.navigate('ChoixQuiz')}>
                             <Text style={styles.buttonsText}>Jouer</Text>
                         </TouchableOpacity>
-
                     </View>
-
-                    <View style={styles.lineStyle}
-
-                    />
                     <View style={styles.coursMainContainer}>
                         <Text style={{fontSize: 18, fontWeight: 'bold', color: '#4267B2'}}>Cours disponibles</Text>
                     </View>
-
                     <View style={styles.coursContainer}>
                         <TouchableOpacity
-                            style={styles.buttonsCours}
-                        >
+                            style={styles.buttonsCours}>
                             <Image
-
                                 source={require('../assets/Images/code.png')}
                             />
                             <Text style={styles.buttonsCoursText}>Dev</Text>
                         </TouchableOpacity>
-
                         <TouchableOpacity
-                            style={styles.buttonsCours}
-                          >
+                            style={styles.buttonsCours}>
                             <Image
-
                                 source={require('../assets/Images/design.png')}
                             />
                             <Text style={styles.buttonsCoursText}>Design</Text>
                         </TouchableOpacity>
-
                         <TouchableOpacity
-                            style={styles.buttonsCours}
-                            >
+                            style={styles.buttonsCours}>
                             <Image
-
                                 source={require('../assets/Images/market.png')}
                             />
                             <Text style={styles.buttonsCoursText}>Marketing</Text>
                         </TouchableOpacity>
-
-
                     </View>
-
-                    <View style={styles.lineStyle}
-                    />
                     <View style={styles.ContainerEnd}>
                         <View>
                             <TouchableOpacity style={styles.buttonContact}
                                               onPress={() => this.props.navigation.navigate('Contact')}>
-                                <Text
-                                    style={styles.buttonContactText}>Contact Staff
-                                </Text>
+                                <Text style={styles.buttonContactText}>Contact Staff</Text>
                             </TouchableOpacity>
-
                         </View>
-
                         <TouchableOpacity style={styles.buttonCondition}
                                           onPress={() => this.props.navigation.navigate('CGU')}>
-                            <Text
-                                style={styles.buttonContactText}>Condition d'utilisation
-                            </Text>
+                            <Text style={styles.buttonContactText}>Condition d'utilisation</Text>
                         </TouchableOpacity>
                     </View>
-
                 </View>
             </ScrollView>
         );
@@ -203,14 +171,13 @@ const styles = StyleSheet.create({
     },
 
     coursMainContainer: {
-        marginTop: 20,
+        marginTop: 70,
         alignItems: 'center',
 
     },
 
     coursContainer: {
         marginTop: 20,
-
         flexDirection: 'row',
         justifyContent: 'space-around',
 
@@ -242,8 +209,6 @@ const styles = StyleSheet.create({
         color: '#FFF',
         fontSize: 14,
         fontWeight: 'bold',
-
-
     },
 
     buttonContact: {
@@ -264,13 +229,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#4267B2',
         alignItems: 'center',
         justifyContent: 'center',
-        borderRadius:10,
-    },
-
-    lineStyle: {
-        borderWidth: 2,
-        borderColor: 'black',
-        marginTop: 60,
+        borderRadius: 10,
     },
 
     img: {

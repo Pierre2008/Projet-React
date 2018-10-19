@@ -1,6 +1,7 @@
 import {devJsonData} from "../assets/Data/devQuizData";
 import React from "react";
-import {StyleSheet, Text, TouchableHighlight, TouchableOpacity, View, Modal} from "react-native";
+import {StyleSheet, Text, TouchableHighlight, TouchableOpacity, View, Modal, Image} from "react-native";
+import {Button} from "native-base";
 
 export default class DevQuiz extends React.Component {
 
@@ -12,7 +13,6 @@ export default class DevQuiz extends React.Component {
             score: 0,
             questionNumber: 0,
             visible: false,
-            disable: false,
         })
     }
 
@@ -28,7 +28,6 @@ export default class DevQuiz extends React.Component {
                 count: this.state.count + 1,
                 response: false,
                 questionNumber: false,
-                disable: false,
                 enable: false,
                 visible: false,
             })
@@ -42,7 +41,7 @@ export default class DevQuiz extends React.Component {
             })
         }
         else {
-            return(null)
+            return (null)
         }
     };
 
@@ -51,11 +50,15 @@ export default class DevQuiz extends React.Component {
         return (
             <View style={styles.mainContainer}>
                 <View style={styles.questionContainer}>
-                    <Text>{devJsonData.questions[this.state.count].title}</Text>
+                    <Text style={{
+                        color: '#4267B2',
+                        fontSize: 14,
+                        fontWeight: 'bold',
+                    }}>{devJsonData.questions[this.state.count].title}</Text>
                 </View>
-                <View style={styles.answersContainer}>
-                    {devJsonData.questions[this.state.count].answer.map((el) => {
-                        return (
+                {devJsonData.questions[this.state.count].answer.map((el) => {
+                    return (
+                        <View style={styles.answersContainer}>
                             <TouchableHighlight
                                 style={[styles.answersButtons, {backgroundColor: (el.goodAnswer === true && this.state.response === true) ? "#006400" : "white"}]}
                                 onPress={() => {
@@ -64,83 +67,126 @@ export default class DevQuiz extends React.Component {
                                         response: true,
                                         disable: true,
                                         enable: true,
-                                        visible: false
                                     });
 
                                 }}
                                 underlayColor={'white'}
                             >
-                                <Text>{el.nom}</Text>
+                                <Text style={{fontSize: 14, fontWeight: '500',}}>{el.nom}</Text>
                             </TouchableHighlight>
-                        )
-                    })
-                    }
-                </View>
+                        </View>
+                    )
+                })
+                }
 
-                <View style={{flex: 1}}>
+                <View style={styles.buttonNext}>
                     <TouchableOpacity
                         onPress={() => this._nextQuestion()}>
-                        <Text>Question Suivante</Text>
+                        <Text style={styles.buttonNextQuestion}>Question Suivante</Text>
                     </TouchableOpacity>
                 </View>
                 <Modal
                     animationType="slide"
                     transparent={false}
                     visible={this.state.visible}
+                    onRequestClose={() => {
+                        this.props.navigation.navigate('ChoixQuiz')
+                    }}
                 >
                     <View style={styles.ModalScore}>
-                        <Text>Votre score est de {this.state.score} /5</Text>
-                        <TouchableOpacity
-                            style={styles.buttonNextGame}
-                            onPress={() => {
-                                this.props.navigation.navigate('ChoixQuiz');
-                                this.setState({visible: false})
-                            }}
-                        >
-                            <Text>Jouer à un autre quizz</Text>
-                        </TouchableOpacity>
+                        <View style={styles.header}>
+                            <Image
+                                source={require('../assets/Images/result.png')}
+                                style={{marginBottom: 30}}
+                            />
+                        </View>
+                        <View style={{flex: 1, justifyContent:'space-between'}}>
+                            <Text style={styles.headerLabel}>Votre score est de {this.state.score} /5</Text>
+                            <Button
+                                style={styles.buttonNextGame}
+                                full
+                                rounded
+                                primary
+                                onPress= {() => {
+                                    this.props.navigation.navigate('ChoixQuiz');
+                                    this.setState({visible: false})
+                                }}
+                            >
+                                <Text>Jouer une autre partie</Text>
+                            </Button>
+                        </View>
                     </View>
                 </Modal>
             </View>
-
-
         );
     }
 };
+
 const styles = StyleSheet.create({
     mainContainer: {
         flex: 1,
         backgroundColor: '#FFCC66',
+        alignItems: 'center',
+        justifyContent: 'space-around'
     },
+    /* CONTAINER QUESTION */
+    questionContainer: {
+        width: 300,
+        height: 150,
+        marginTop: 50,
+        borderRadius: 5,
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: '#FFF'
+    },
+    /* Answers Container */
     answersContainer: {
         flex: 2,
         marginTop: 50,
-        justifyContent: 'space-between',
-        alignItems: 'center',
-
     },
+    /* Answers Buttons */
     answersButtons: {
         width: 300,
         height: 50,
         alignItems: 'center',
         justifyContent: 'center',
         borderRadius: 5,
-
-
     },
     buttonNext: {
         backgroundColor: '#4267B2',
-        width: 90,
-        height: 40,
+        width: 150,
+        height: 50,
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderRadius: 10,
+    },
+    buttonNextQuestion: {
+        color: '#FFF',
+        fontSize: 14,
+        fontWeight: 'bold',
+        backgroundColor: '#4267B2'
+    },
+
+    /* VUE SCORE */
+    ModalScore: {
+        flex: 1,
+        backgroundColor: '#FFCC66',
         alignItems: 'center',
         justifyContent: 'center',
     },
 
-    ModalScore: {
+    header: {
         flex: 1,
-        backgroundColor: '#4267B2',
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        marginTop: 70
+    },
+    headerLabel: {
+        fontSize: 16,
+        fontWeight: 'bold',
+        justifyContent: 'center',
+        alignItems: 'center',
+        color: '#4267B2',
     },
 
     buttonNextGame: {

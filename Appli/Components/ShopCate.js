@@ -1,57 +1,32 @@
 import React from 'react';
-import {
-    StyleSheet,
-    Text,
-    View,
-    Image,
-    Button,
-    StatusBar,
-    ScrollView,
-    Dimensions,
-    TouchableOpacity,
-    For
-} from 'react-native';
-import {FormLabel, FormInput, FormValidationMessage} from 'react-native-elements'
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 
 export default class ShopCate extends React.Component {
-
-
     render() {
         return (
-
             <View style={styles.mainContainer}>
                 <View style={styles.title}>
                     <Text style={styles.headerLabel}>Choisir Catégories</Text>
-
-                    <View>
-                    </View>
-
                 </View>
-
                 <TouchableOpacity
                     style={styles.buttonsPlay}
                     onPress={() => this.props.navigation.navigate('FicheMet')}>
                     <Text style={styles.buttonsText}>Fiches Métiers</Text>
                 </TouchableOpacity>
-
                 <TouchableOpacity style={styles.buttonsPlay}
                                   onPress={() => this.props.navigation.navigate('CoursLang')}>
                     <Text style={styles.buttonsText}>Cours</Text>
                 </TouchableOpacity>
-
             </View>
         );
-
-
     }
 }
 
 const styles = StyleSheet.create({
     mainContainer: {
         flex: 1,
-        backgroundColor: '#ff9f44',
+        backgroundColor: '#FFCC66',
     },
-
 
     headerLabel: {
         fontSize: 35,
@@ -83,6 +58,4 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center'
     },
-
-
 });

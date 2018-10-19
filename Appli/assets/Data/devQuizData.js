@@ -21,7 +21,7 @@ export const devJsonData = {
             ]
         },
         {
-            title: "Lequel de ces éléments est considéré comme appartenant au Back-End",
+            title: "Lequel de ces éléments est considéré comme appartenant au Back-End ?",
             answer: [
                 {nom: "Un fichier HTML", goodAnswer: false},
                 {nom: "Une interface graphique", goodAnswer: false},

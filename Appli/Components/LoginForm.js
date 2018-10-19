@@ -1,7 +1,7 @@
 import React from 'react';
 import * as firebase from 'firebase';
 import {StyleSheet, Text, Image, View} from 'react-native';
-import { Container, Form, Input, Item, Button, Label,  } from 'native-base';
+import { Container, Form, Input, Item, Button, Label} from 'native-base';
 
 
 // Initialize Firebase
